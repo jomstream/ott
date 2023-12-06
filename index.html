@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTT Playlist Fetcher</title>
+</head>
+<body>
+
+<h1>OTT Playlist Fetcher</h1>
+
+<script>
+    async function fetchM3U8Playlist(url) {
+        try {
+            const response = await fetch(url);
+
+            if (!response.ok) {
+                throw new Error(`Error: Unable to fetch M3U8 playlist. Status code: ${response.status}`);
+            }
+
+            const playlistContent = await response.text();
+            // Parse the playlist and extract information about segments
+            // ... (your parsing logic goes here)
+            console.log("M3U8 playlist fetched successfully:", playlistContent);
+        } catch (error) {
+            console.error(error.message);
+        }
+    }
+
+    // Example usage
+    const playlistUrl = "https://example.com/path/to/your/api/endpoint";
+    fetchM3U8Playlist(playlistUrl);
+</script>
+
+</body>
+</html>
